@@ -6,6 +6,6 @@
 <id name="sid" column="sid"/>
 <property name ="sname" column="name"></property>
 <property name ="smarks" column="marks"></property>
-<property name ="saddress" column="address"></property>
+
 </class>
 </hibernate-mapping>

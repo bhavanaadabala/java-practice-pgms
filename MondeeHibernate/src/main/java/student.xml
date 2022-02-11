@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+<class name="com.mondee.Student" table="student">
+<id name="sid" column="sid"/>
+<property name ="sname" column="name"></property>
+<property name ="smarks" column="marks"></property>
+
+</class>
+</hibernate-mapping>
