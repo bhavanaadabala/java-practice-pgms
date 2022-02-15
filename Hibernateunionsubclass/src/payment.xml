@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+<class name="com.mondee.Payment" table="payment">
+<id name="paymentId" column="PaymentId"></id>
+<property name ="amount" column="amount"></property>
+
+<union-subclass name="com.mondee.CreditCard" table="CreditCard" >
+
+<property name ="CreditCardType" column="CreditCardType"></property>
+</union-subclass>
+
+<union-subclass name="com.mondee.Cheque" table="Cheque" >
+
+<property name ="ChequeType" column="ChequeType"></property>
+</union-subclass>
+</class>
+</hibernate-mapping>
