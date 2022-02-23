@@ -1,0 +1,39 @@
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<bean id="connection" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+<property name="url" value="jdbc:mysql://localhost:3306/mondee"></property>
+<property name="username" value="root"></property>
+<property name="password" value="Meta@123"></property>
+</bean>
+
+<bean id="mysf" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+<property name="dataSource">
+<ref bean="connection"></ref>
+</property>
+
+<property name="mappingResources">
+<list>
+<value>student.xml</value>
+</list>
+</property>
+
+<property name="hibernateProperties">
+<props>
+<prop key="hibernate.hbm2ddl.auto">update</prop>
+<prop key="hibernate.show_sql">true</prop>
+<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+</props>
+</property>
+</bean>
+
+<bean id="hbobj" class="com.mondee.Springjdbcselect">
+<property name="sessionFactory">
+<ref bean="mysf"></ref>
+</property>
+
+</bean>
+</beans>
